@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="model_custody_form_view" model="ir.ui.view">
+        <field name="name">Custody</field>
+        <field name="model">logic.custody</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Placements">
+                <header>
+                    <!--                    <field name="state" widget="statusbar"/>-->
+                    <!--                    <button name="action_scheduled" string="Schedule" type="object" states="draft"-->
+                    <!--                            class="oe_highlight"/>-->
+                    <!--                    <button name="action_signed" string="Sign" type="object" states="scheduled" class="oe_highlight"/>-->
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <!--                    <widget name="web_ribbon" title="signed" bg_color="bg-success"-->
+                    <!--                            attrs="{'invisible': [('state', '!=', 'signed')]}"/>-->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_custody_list_view" model="ir.ui.view">
+        <field name="name">Custody</field>
+        <field name="model">logic.custody</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="model_custody_action">
+        <field name="name">Custody</field>
+        <field name="res_model">logic.custody</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+<!--    <menuitem name="Custody"-->
+<!--              id="model_custody__sec_menu"-->
+<!--              parent="model_custody_menu"-->
+<!--              action="model_custody_action"-->
+<!--              sequence="1"/>-->
+    <!--              parent="menu_seminar_colleges_view"-->
+
+
+</odoo>

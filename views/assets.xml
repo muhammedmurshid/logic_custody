@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="model_custody_assets_form_view" model="ir.ui.view">
+        <field name="name">Class Assets</field>
+        <field name="model">logic.custody.class.assets</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Assets">
+                <header>
+                    <!--                    <field name="state" widget="statusbar"/>-->
+                    <!--                    <button name="action_scheduled" string="Schedule" type="object" states="draft"-->
+                    <!--                            class="oe_highlight"/>-->
+                    <!--                    <button name="action_signed" string="Sign" type="object" states="scheduled" class="oe_highlight"/>-->
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Asset Name" required="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <!--                            <field name="name"/>-->
+                            <field name="class_id"/>
+                            <field name="batch_id"/>
+                            <field name="branch"/>
+                            <field name="company_id"/>
+
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_custody_assets_list_view" model="ir.ui.view">
+        <field name="name">Assets</field>
+        <field name="model">logic.custody.class.assets</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Asset"/>
+                <field name="class_id"/>
+                <field name="batch_id"/>
+                <field name="branch"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="model_custody_assets_action">
+        <field name="name">Assets</field>
+        <field name="res_model">logic.custody.class.assets</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Class Assets"
+              id="model_custody_assets_menu"
+              action="model_custody_assets_action"
+              parent="model_custody_menu"
+              sequence="4"/>
+
+
+</odoo>
