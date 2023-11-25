@@ -2,7 +2,7 @@
     'name': "Logic Custody",
     'version': "14.0.1.0",
     'sequence': "0",
-    'depends': ['base','mail'],
+    'depends': ['base','mail','logic_base'],
     'data': [
         'security/users.xml',
         'security/ir.model.access.csv',
@@ -10,6 +10,7 @@
         'views/custody.xml',
         'views/properties.xml',
         'views/assets.xml',
+        'views/total_assets.xml',
         # 'data/task_types.xml',
 
     ],

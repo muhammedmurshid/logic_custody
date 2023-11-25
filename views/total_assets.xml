@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="model_custody_total_assets_form_view" model="ir.ui.view">
+        <field name="name">Assets</field>
+        <field name="model">logic.total.assets</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Assets">
+                <header>
+                    <!--                    <field name="state" widget="statusbar"/>-->
+                    <!--                    <button name="action_scheduled" string="Schedule" type="object" states="draft"-->
+                    <!--                            class="oe_highlight"/>-->
+                    <!--                    <button name="action_signed" string="Sign" type="object" states="scheduled" class="oe_highlight"/>-->
+                </header>
+                <sheet>
+                    <field name="asset_photo" widget='image' class="oe_avatar"/>
+                    <!--                    <div class="oe_title">-->
+                    <!--                        <h1>-->
+                    <!--                            <field name="class_id" placeholder="Class Name" required="1"/>-->
+                    <!--                        </h1>-->
+                    <!--                    </div>-->
+
+                    <group>
+                        <group>
+                            <!--                            <field name="name"/>-->
+                            <!--                            <field name="class_id"/>-->
+                            <field name="asset_name"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="added_person"/>
+                            <field name="added_date"/>
+                        </group>
+                    </group>
+<!--                    <notebook>-->
+<!--                        <page string="assets List">-->
+<!--                            <field name="assets_list_ids">-->
+<!--                                <tree editable="bottom">-->
+<!--                                    <field name="serial_number"/>-->
+<!--                                    <field name="asset_name"/>-->
+<!--                                    <field name="cost" widget="monetary"/>-->
+<!--                                    <field name="currency_id" invisible="1"/>-->
+<!--                                </tree>-->
+<!--                            </field>-->
+<!--                        </page>-->
+
+<!--                    </notebook>-->
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_custody_total_assets_list_view" model="ir.ui.view">
+        <field name="name">Assets</field>
+        <field name="model">logic.total.assets</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="added_date"/>
+                <field name="asset_name" string="Assets"/>
+                <field name="added_person"/>
+
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="model_custody_total_assets_action">
+        <field name="name">Assets</field>
+        <field name="res_model">logic.total.assets</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Assets"
+              id="model_custody_total_assets_menu"
+              action="model_custody_total_assets_action"
+              parent="model_custody_menu"
+              sequence="5"/>
+
+
+</odoo>

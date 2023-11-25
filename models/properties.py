@@ -5,8 +5,9 @@ class LogicCustodyProperties(models.Model):
     _name = 'logic.custody.properties'
     _description = 'Custody Properties'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _rec_name = 'property_id'
 
-    name = fields.Char(string='Name')
+    property_id = fields.Many2one('logic.total.assets', string='Name')
     serial_number = fields.Char(string='Serial Number')
     property_from = fields.Selection(
         [('empty', 'No Connection'), ('product', 'Products')], default='empty', string='Property From'
@@ -19,7 +20,8 @@ class LogicCustodyProperties(models.Model):
     property_photo = fields.Binary(string='Property Photo')
     rep_ids = fields.One2many('repair.logic.property', 'rep_id', string='Rep')
     state = fields.Selection(
-        [('draft', 'Draft'), ('confirm', 'Confirmed'), ('scrap', 'Scrap')], default='draft', string='State', tracking=True
+        [('draft', 'Draft'), ('confirm', 'Confirmed'), ('scrap', 'Scrap')], default='draft', string='State',
+        tracking=True
     )
     added_date = fields.Date(string='Added Date', default=fields.Date.today())
 

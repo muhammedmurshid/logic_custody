@@ -22,7 +22,7 @@
                     <field name="property_photo" widget='image' class="oe_avatar"/>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Name" required="1"/>
+                            <field name="property_id" placeholder="Property Name" required="1"/>
                         </h1>
                     </div>
 
@@ -73,7 +73,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="added_date"/>
-                <field name="name" string="Property"/>
+                <field name="property_id" string="Property"/>
                 <field name="purchase_price" string="Purchase Price" widget="monetary"/>
                 <field name="currency_id" invisible="1"/>
                 <field name="state" widget="badge" decoration-success="state == 'confirm'" decoration-info="state == 'scrap'"/>

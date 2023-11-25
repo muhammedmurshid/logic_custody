@@ -17,3 +17,13 @@ access_custody_properties_hr,access_custody_form,model_logic_custody_properties,
 access_custody_scraps_hr,access_custody_form,model_logic_custody_class_assets,logic_custody_hr,1,1,1,1
 
 access_custody_property_repair_hr,access_custody_form,model_repair_logic_property,logic_custody_hr,1,1,1,1
+access_custody_assets_list,access_custody_form,model_logic_custody_assets_list,,1,1,1,1
+
+access_custody_total_assets_list,access_custody_form,model_logic_total_assets,logic_custody_operations,1,1,1,1
+access_custody_total_assets_list_hr,access_custody_form,model_logic_total_assets,logic_custody_hr,1,0,0,0
+access_custody_total_assets_list_admin,access_custody_form,model_logic_total_assets,logic_custody_admin,1,1,1,1
+
+access_custody_repair_assets,access_custody_form,model_repair_logic_class_assets,,1,1,1,1
+
+
+
