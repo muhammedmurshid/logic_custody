@@ -90,11 +90,11 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Class Assets"
-              id="model_custody_assets_menu"
-              action="model_custody_assets_action"
-              parent="model_custody_menu"
-              sequence="4"/>
+<!--    <menuitem name="Class Assets"-->
+<!--              id="model_custody_assets_menu"-->
+<!--              action="model_custody_assets_action"-->
+<!--              parent="model_custody_menu"-->
+<!--              sequence="4"/>-->
 
 
 </odoo>

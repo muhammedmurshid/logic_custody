@@ -25,5 +25,8 @@ access_custody_total_assets_list_admin,access_custody_form,model_logic_total_ass
 
 access_custody_repair_assets,access_custody_form,model_repair_logic_class_assets,,1,1,1,1
 
+access_custody_types,access_custody_form,model_logic_custody_type,,1,1,1,1
+
+
 
 

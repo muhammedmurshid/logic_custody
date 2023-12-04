@@ -7,7 +7,9 @@ class LogicCustodyProperties(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'property_id'
 
-    property_id = fields.Many2one('logic.total.assets', string='Name')
+    property_id = fields.Many2one('logic.custody.type', string='Type')
+    class_id = fields.Many2one('logic.base.class', string='Class', related='property_id.class_id')
+    is_class_room = fields.Boolean(string='Is Class Room', related='property_id.is_class_room')
     serial_number = fields.Char(string='Serial Number')
     property_from = fields.Selection(
         [('empty', 'No Connection'), ('product', 'Products')], default='empty', string='Property From'
@@ -33,6 +35,21 @@ class LogicCustodyProperties(models.Model):
 
     def action_return_to_draft(self):
         self.state = 'draft'
+
+    @api.depends('rep_ids.repair_cost')
+    def _amount_all(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        total = 0
+        for order in self.rep_ids:
+            total += order.repair_cost
+        self.update({
+            'repair_amt': total,
+
+        })
+
+    repair_amt = fields.Float(string='Repair Amount', compute='_amount_all', store=True)
 
 
 class RepairCustody(models.Model):
