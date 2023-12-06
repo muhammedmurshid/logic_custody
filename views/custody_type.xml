@@ -25,13 +25,7 @@
                     <group>
                         <group>
                             <field name="date"/>
-                            <label for="is_class_room">Is Class Room</label>
-                            <div class="o_row">
-                                <field name="is_class_room"/>
-                                <field name="class_id"
-                                       attrs="{'invisible': [('is_class_room', '=', False)], 'required':[('is_class_room', '=', True)]}"
-                                       placeholder="Class" options="{'no_create': True}"/>
-                            </div>
+                            <field name="is_class_room"/>
                             <field name="perishable"/>
                             <field name="scrappable"/>
 

@@ -8,12 +8,12 @@ class LogicCustodyProperties(models.Model):
     _rec_name = 'property_id'
 
     property_id = fields.Many2one('logic.custody.type', string='Type')
-    class_id = fields.Many2one('logic.base.class', string='Class', related='property_id.class_id')
+    class_id = fields.Char(string='Class')
     is_class_room = fields.Boolean(string='Is Class Room', related='property_id.is_class_room')
+    branch_id = fields.Many2one('logic.base.branches', string='Branch')
     serial_number = fields.Char(string='Serial Number')
     property_from = fields.Selection(
-        [('empty', 'No Connection'), ('product', 'Products')], default='empty', string='Property From'
-    )
+        [('empty', 'No Connection'), ('product', 'Products')], default='empty', string='Property From')
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, readonly=1)
     current_user_id = fields.Many2one('res.users', string='Current User')
     purchase_price = fields.Float(string='Purchase Price')

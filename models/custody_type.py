@@ -11,4 +11,3 @@ class LogicCustodyType(models.Model):
     perishable = fields.Boolean(string='Perishable')
     scrappable = fields.Boolean(string='Scrappable')
     date = fields.Date(string='Date', default=fields.Date.today)
-    class_id = fields.Many2one('logic.base.class', string='Class')
