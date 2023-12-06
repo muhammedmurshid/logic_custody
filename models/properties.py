@@ -26,8 +26,19 @@ class LogicCustodyProperties(models.Model):
         tracking=True
     )
     added_date = fields.Date(string='Added Date', default=fields.Date.today())
+    model_number = fields.Char(string='Model Number')
 
     def action_confirm(self):
+        staff = self.env['hr.employee'].search([('id', '=', self.current_user_id.employee_id.id)])
+        res = []
+        if staff:
+            res_list = {
+                'property': self.property_id.id,
+                'serial_number': self.serial_number,
+            }
+            res.append((0, 0, res_list))
+            staff.custody_ids = res
+
         self.state = 'confirm'
 
     def action_scrap(self):
