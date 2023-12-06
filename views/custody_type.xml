@@ -24,7 +24,7 @@
                     <!--                            attrs="{'invisible': [('state', '!=', 'paid')]}"/>-->
                     <group>
                         <group>
-                            <field name="date"/>
+<!--                            <field name="date"/>-->
                             <field name="is_class_room"/>
                             <field name="perishable"/>
                             <field name="scrappable"/>
@@ -46,7 +46,7 @@
         <field name="model">logic.custody.type</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="date"/>
+<!--                <field name="date"/>-->
                 <field name="name"/>
                 <field name="is_class_room"/>
                 <field name="perishable"/>
