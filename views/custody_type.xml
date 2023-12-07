@@ -68,4 +68,5 @@
               action="model_custody_types_action"
               parent="model_custody_menu"
               sequence="1"/>
+
 </odoo>

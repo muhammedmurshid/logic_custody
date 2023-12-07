@@ -29,7 +29,7 @@ class LogicCustodyProperties(models.Model):
     model_number = fields.Char(string='Model Number')
 
     def action_confirm(self):
-        staff = self.env['hr.employee'].search([('id', '=', self.current_user_id.employee_id.id)])
+        staff = self.env['hr.employee'].sudo().search([('id', '=', self.current_user_id.employee_id.id)])
         res = []
         if staff:
             res_list = {
@@ -37,7 +37,7 @@ class LogicCustodyProperties(models.Model):
                 'serial_number': self.serial_number,
             }
             res.append((0, 0, res_list))
-            staff.custody_ids = res
+            staff.sudo().write({'custody_ids': res})
 
         self.state = 'confirm'
 
