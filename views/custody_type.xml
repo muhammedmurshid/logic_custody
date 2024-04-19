@@ -28,6 +28,7 @@
                             <field name="is_class_room"/>
                             <field name="perishable"/>
                             <field name="scrappable"/>
+                            <field name="add_specs"/>
 
                         </group>
                     </group>

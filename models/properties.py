@@ -6,6 +6,7 @@ class LogicCustodyProperties(models.Model):
     _description = 'Custody Properties'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'property_id'
+    _order = 'serial_number asc'
 
     property_id = fields.Many2one('logic.custody.type', string='Type')
     class_id = fields.Char(string='Class')
@@ -25,8 +26,21 @@ class LogicCustodyProperties(models.Model):
         [('draft', 'Draft'), ('confirm', 'Confirmed'), ('scrap', 'Scrap')], default='draft', string='State',
         tracking=True
     )
+    specs = fields.Boolean(string='Specs')
     added_date = fields.Date(string='Added Date', default=fields.Date.today())
     model_number = fields.Char(string='Model Number')
+    ram = fields.Char(string='RAM')
+    rom = fields.Char(string='ROM')
+    processor = fields.Char(string='Processor')
+    gpu = fields.Char(string='GPU')
+    charger = fields.Boolean(string='Charger')
+
+    @api.onchange('property_id')
+    def _onchange_property_add_specs(self):
+        if self.property_id.add_specs == True:
+            self.specs = True
+        else:
+            self.specs = False
 
     def action_confirm(self):
         staff = self.env['hr.employee'].sudo().search([('id', '=', self.current_user_id.employee_id.id)])

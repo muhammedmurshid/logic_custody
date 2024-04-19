@@ -11,3 +11,4 @@ class LogicCustodyType(models.Model):
     perishable = fields.Boolean(string='Perishable')
     scrappable = fields.Boolean(string='Scrappable')
     date = fields.Date(string='Date', default=fields.Date.today)
+    add_specs = fields.Boolean(string='Add Specs', default=False)

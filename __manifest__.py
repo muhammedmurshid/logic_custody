@@ -12,7 +12,7 @@
         'views/assets.xml',
         'views/total_assets.xml',
         'views/custody_type.xml',
-        # 'data/task_types.xml',
+        'data/default_data.xml',
 
     ],
     'demo': [],
