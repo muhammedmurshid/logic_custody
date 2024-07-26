@@ -86,7 +86,7 @@
         <field name="name">Property</field>
         <field name="model">logic.custody.properties</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree sample="1" multi_edit="1">
                 <field name="serial_number" required="1"/>
                 <field name="branch_id"/>
                 <field name="property_id" string="Property"/>
